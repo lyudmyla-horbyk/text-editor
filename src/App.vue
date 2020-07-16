@@ -1,28 +1,48 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+  <div>
+    <Header />
+    <EditorToolbar />
+    <TextEditor v-model="content" />
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import Header from "./components/Header";
+import EditorToolbar from "./components/EditorToolbar";
+import TextEditor from "./components/TextEditor";
 
 export default {
-  name: "App",
+  name: "app",
   components: {
-    HelloWorld
-  }
+    Header,
+    EditorToolbar,
+    TextEditor
+  },
+  data() {
+    return {
+      content: "Text Editor"
+    };
+  },
+  methods: {}
 };
 </script>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+body {
+  margin: auto;
+}
+header,
+main,
+footer,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+nav {
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }
 </style>
