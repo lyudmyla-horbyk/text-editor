@@ -1,5 +1,5 @@
 # text-editor
-This project is simple text editor.
+This project is a simple text editor.
 
 ### Technologies
 Project is created with: 
