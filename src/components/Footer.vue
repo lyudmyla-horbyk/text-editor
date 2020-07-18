@@ -3,7 +3,7 @@
     <div class="footer-text">
       <p class="made-by">
         Made by
-        <a class="link-to-profile" href="https://github.com/lyudmyla-horbyk">Liudmyla Liashuk</a> in2020
+        <a class="link-to-profile" href="https://github.com/lyudmyla-horbyk">Liudmyla Liashuk</a> in 2020
       </p>
     </div>
   </footer>
