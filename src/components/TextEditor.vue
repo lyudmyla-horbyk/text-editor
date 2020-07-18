@@ -6,7 +6,7 @@
       @change-background="changeBackgroundText"
       @copy-json="copyJson"
     />
-    <p class="text-editor" ref="editable" contenteditable v-html="this.value"></p>
+    <p class="text-editor" ref="editable" contenteditable @input="changeContent"></p>
   </div>
 </template>
 
@@ -24,10 +24,14 @@ export default {
     }
   },
   mounted() {
-    this.$refs.editable.innerText = this.value;
+    // v-model or v-html causes contenteditable to loose focus
+    this.$refs.editable.innerHTML = this.value;
     document.execCommand("styleWithCSS", false, true);
   },
   methods: {
+    changeContent(e) {
+      this.$emit("input", e.target.innerHTML);
+    },
     changeColorText(colorText) {
       document.execCommand("foreColor", false, colorText);
     },
@@ -38,22 +42,24 @@ export default {
       document.execCommand("backColor", false, backgroundText);
     },
     copyJson() {
-      console.log(this.$refs.editable.childNodes);
-      const myArray = [...this.$refs.editable.childNodes].map(x => ({
+      const result = [...this.$refs.editable.childNodes].map(x => ({
         text: x.textContent,
         fontSize: x.style && x.style.fontSize,
         color: x.style && x.style.color,
         backgroundColor: x.style && x.style.backgroundColor
       }));
-      console.log(myArray);
+      console.log(result);
     }
   }
 };
 </script>
-<style lang="scss">
+<style scoped lang="scss">
 .text-editor {
   border: 2px solid grey;
   border-top: none;
   height: 300px;
+  box-sizing: border-box;
+  padding: 10px 20px;
+  line-height: 1.3;
 }
 </style>

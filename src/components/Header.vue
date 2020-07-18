@@ -1,25 +1,18 @@
 <template>
   <header>
     <div class="title">
-      <h1>Text Editor</h1>
+      <h1 class="heading">Text Editor</h1>
     </div>
   </header>
 </template>
-<script>
-export default {
-  components: {},
-  methods: {}
-};
-</script>
 <style scoped lang="scss">
 header {
   background-color: #870e4f;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding: 20px 0;
   .title {
     text-align: center;
-    h1 {
-      color: white;
+    .heading {
+      color: #ffffff;
       font: 38px "Maven Pro", sans-serif;
     }
   }

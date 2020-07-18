@@ -1,27 +1,28 @@
 <template>
-  <div>
+  <div class="wrapper">
     <Header />
-    <TextEditor v-model="content" />
+    <div class="container">
+      <TextEditor :value="content" @input="changeContent" />
+    </div>
+    <Footer />
   </div>
 </template>
 
 <script>
 import Header from "./components/Header";
 import TextEditor from "./components/TextEditor";
+import Footer from "./components/Footer";
+import { mapState, mapMutations } from "vuex";
 
 export default {
   name: "app",
   components: {
     Header,
-    TextEditor
+    TextEditor,
+    Footer
   },
-  data() {
-    return {
-      content:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-    };
-  },
-  methods: {}
+  computed: mapState(["content"]),
+  methods: mapMutations(["changeContent"])
 };
 </script>
 
@@ -42,5 +43,15 @@ nav {
   margin: 0;
   padding: 0;
   width: 100%;
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0;
+}
+.container {
+  max-width: 960px;
+  margin: 40px auto;
 }
 </style>
