@@ -3,11 +3,10 @@ This project is simple text editor.
 
 ### Technologies
 Project is created with: 
-```
 * Vue.js
 * Vuex
 * Sass
-```
+
 ### Project setup
 To run this project, install it locally using npm:
 ```
